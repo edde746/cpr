@@ -13,10 +13,8 @@ CurlHolder::CurlHolder() {
      * https://curl.haxx.se/libcurl/c/curl_easy_init.html
      * https://curl.haxx.se/libcurl/c/threadsafe.html
      **/
-    curl_easy_init_mutex_().lock();
     // NOLINTNEXTLINE (cppcoreguidelines-prefer-member-initializer) since we need it to happen inside the lock
     handle = curl_easy_init();
-    curl_easy_init_mutex_().unlock();
 
     assert(handle);
 } // namespace cpr
